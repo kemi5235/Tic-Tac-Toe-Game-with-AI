@@ -1,0 +1,18 @@
+const board = ['', '', '', '', '', '', '', '', ''];
+const player = 'X';
+const ai = 'O';
+
+function printBoard() {
+  console.log(`${board[0]} | ${board[1]} | ${board[2]}`);
+  console.log('--+---+--');
+  console.log(`${board[3]} | ${board[4]} | ${board[5]}`);
+  console.log('--+---+--');
+  console.log(`${board[6]} | ${board[7]} | ${board[8]}`);
+}
+
+function aiMove() {
+  const emptyCells = board.map((cell, idx) => (cell === '' ? idx : null)).filter(x => x !== null);
+  board[emptyCells[Math.floor(Math.random() * emptyCells.length)]] = ai;
+}
+
+printBoard();
